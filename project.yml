@@ -1,0 +1,48 @@
+name: FishCast
+
+options:
+  bundleIdPrefix: com.fishcast
+  createIntermediateGroups: true
+  generateEmptyDirectories: false
+  xcodeVersion: "15.0"
+
+settings:
+  base:
+    SWIFT_VERSION: "5.10"
+    MARKETING_VERSION: "1.0"
+    CURRENT_PROJECT_VERSION: "1"
+    DEVELOPMENT_TEAM: ""
+    CODE_SIGN_STYLE: Automatic
+    ENABLE_PREVIEWS: YES
+
+targets:
+  FishCast:
+    type: application
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: FishCast
+        excludes:
+          - "**/.DS_Store"
+          - "**/.gitkeep"
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fishcast.FishCast
+        INFOPLIST_FILE: FishCast/Info.plist
+        ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
+        ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+    info:
+      path: FishCast/Info.plist
+      properties:
+        NSLocationAlwaysAndWhenInUseUsageDescription: "FishCast uses your location to provide accurate fishing forecasts and to find spots near you."
+        NSLocationWhenInUseUsageDescription: "FishCast uses your location to show real-time conditions at fishing spots near you."
+        NSLocationAlwaysUsageDescription: "FishCast uses background location to notify you when prime fishing conditions arrive at your saved spots."
+        UILaunchScreen: {}
+        UIUserInterfaceStyle: Dark
+        UISupportedInterfaceOrientations:
+          - UIInterfaceOrientationPortrait
+        UISupportedInterfaceOrientations~ipad:
+          - UIInterfaceOrientationPortrait
+          - UIInterfaceOrientationPortraitUpsideDown
+          - UIInterfaceOrientationLandscapeLeft
+          - UIInterfaceOrientationLandscapeRight
