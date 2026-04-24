@@ -1,0 +1,55 @@
+# Xcode user data
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Build artifacts
+build/
+DerivedData/
+
+# Swift Package Manager
+.swiftpm/
+.build/
+
+# Secrets & API keys
+*.env
+.env
+Secrets.plist
+*Secrets*.plist
+*APIKeys*.plist
+GoogleService-Info.plist
+
+# CocoaPods (if ever added)
+Pods/
+Podfile.lock
+
+# Carthage
+Carthage/Build/
+
+# Fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots/**/*.png
+fastlane/test_output
+
+# Code coverage
+*.gcno
+*.gcda
+
+# Instruments
+*.trace
+
+# Playground
+timeline.xctimeline
+playground.xcworkspace
+
+# Keep these
+# Package.swift
+# Package.resolved
+# project.pbxproj
