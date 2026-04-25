@@ -43,6 +43,7 @@ struct LogView: View {
                     spots: spotStore.spots
                 ) { entry in
                     catchStore.addCatch(entry)
+                    Haptics.success()
                 }
             }
         }
@@ -90,23 +91,15 @@ struct LogView: View {
     // MARK: - Empty
 
     private var emptyState: some View {
-        VStack(spacing: Spacing.md) {
-            Image(systemName: AppIcons.log)
-                .font(.system(size: 56))
-                .foregroundStyle(Color.accentGold)
-            Text("No catches yet")
-                .font(.appTitle2)
-                .foregroundStyle(Color.textPrimary)
-            Text("Tap + to log your first one.")
-                .font(.appBody)
-                .foregroundStyle(Color.textSecondary)
-            PrimaryButton(title: "Log a Catch") {
-                isPresentingNewCatch = true
-            }
-            .padding(.top, Spacing.sm)
-            .padding(.horizontal, Spacing.xl)
+        EmptyStateView(
+            symbol: AppIcons.log,
+            accentSymbol: AppIcons.fish,
+            title: "No catches yet",
+            message: "Tap + to log your first catch — we'll capture conditions automatically.",
+            actionTitle: "Log a Catch"
+        ) {
+            isPresentingNewCatch = true
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity)
     }
 
     // MARK: - Helpers

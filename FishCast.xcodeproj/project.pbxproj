@@ -13,6 +13,7 @@
 		187A67546C87953005DD4B56 /* AppError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BDA39C9761A60AF5E2FAB87 /* AppError.swift */; };
 		188C0EFA61C4D9A22200B31A /* NewSpotSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88325BD5E96A39F8BE75C7EF /* NewSpotSheet.swift */; };
 		1A13FC452C5D5FCBFFFD4CB8 /* FishCastApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B2F59FDFDE90C59A9573B16 /* FishCastApp.swift */; };
+		1A31747F069BE7A29CF80B2E /* ErrorBanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2ECFEC41E6005E99DCFD606 /* ErrorBanner.swift */; };
 		1EBCACA24A8DF00FF2E18ABD /* BestTimesTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41EDC1989125F88CA5CBFDBF /* BestTimesTimelineView.swift */; };
 		2171CA8CD4E6537D1E06BD5D /* DashboardHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1CDFE99619F529B35F2C1F74 /* DashboardHeaderView.swift */; };
 		22132C938614D23149C3B48D /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BAFDB73222944331C9D3885 /* Weather.swift */; };
@@ -20,8 +21,10 @@
 		27B1254F11AEAA99078C4E0E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5566BCFAFD9335FEE0822A19 /* MapViewModel.swift */; };
 		2D29A61F27232F85AB833934 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CCD8D77B902626E04C03B6 /* MapSearchBar.swift */; };
 		2E8DF7D8E43D0FED3417D5E1 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCAB574A986DFAC3608608 /* LogView.swift */; };
+		3BE35E30F25A558D9B149C71 /* FishCastWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E069C82DEFD6B45D4E51CFE /* FishCastWidgetBundle.swift */; };
 		41F8B72BD613C7B2FCCA403F /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A955B8771D323927AD906C /* DashboardViewModel.swift */; };
 		42359E5EC06A5F55912D84B4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0718C65CA9701DA1D9F3FF3 /* SettingsView.swift */; };
+		46A5BDF01B568016F3724A6C /* Haptics.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6AE72103C68F170622E15AC /* Haptics.swift */; };
 		4EE6BAFFAC815E1EB8CFDC67 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C04F7A61F52E194B7AF4C59D /* WeatherService.swift */; };
 		510096FF69C4ECD15C39F1AB /* BarometricService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 164B180FA6CD606E22474262 /* BarometricService.swift */; };
 		562D97BF47C6DDEF69964596 /* DashboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7AF5E3EE1665E6090B7E28D /* DashboardView.swift */; };
@@ -29,8 +32,10 @@
 		5C891DC5CF1A0AFDEFE075EF /* WeatherSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 054649130D175EB17CACA611 /* WeatherSnapshot.swift */; };
 		61F1C0F54D906EC6F9D46CEA /* FishingSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = AA6D40E1C6EFB17204F89858 /* FishingSpot.swift */; };
 		64CF5238AC9E393683BA06DA /* MoonPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCE53397F4C14592A97F0189 /* MoonPhase.swift */; };
+		672AD45209451E5079E1F643 /* FishCastWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8A0C31F41E2B5C101886D43 /* FishCastWidget.swift */; };
 		69FFCF5C82BEC1AFA978DA6C /* NewCatchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03AEAD0CF3386E9EB5BFADB2 /* NewCatchSheet.swift */; };
 		6B4F61B1E3484D44C1C73019 /* DesignSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1E23419997B0CFEF5A03D7F5 /* DesignSystem.swift */; };
+		6D1CDD1ED51A4C2932F65DED /* ShareSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94C657D5D3ED54FD2F311342 /* ShareSheet.swift */; };
 		6EBBD90D871B663874A651D9 /* MoonSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 92376870D43DFADDB86ABF63 /* MoonSection.swift */; };
 		7773D47FEEE459053E4A4D9C /* SpeciesPredictor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F625B4D3F44536CEDF9D47D /* SpeciesPredictor.swift */; };
 		778334E8AE61B0C2819FA077 /* FishingScoreCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 97CB696557D63D767127FBC2 /* FishingScoreCard.swift */; };
@@ -40,19 +45,25 @@
 		839AF3B071A65178CA70C85F /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B3B3AA055FA1105AEE52AB97 /* LocationService.swift */; };
 		90AA12EA01643593BCFA2DFA /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC928C05E566F224CAFB4C6 /* ForecastViewModel.swift */; };
 		929FA6927D5F1F916FE9DEF6 /* CatchStatsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472AFA8EAB0295C1B6DD06A8 /* CatchStatsCard.swift */; };
+		97EF91D466EF3583C3601C3A /* FishCastWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D02DBF1AC2DBBBA176F128 /* FishCastWidgetEntryView.swift */; };
 		9C1404E6A30BE869F8D3A883 /* MapMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE688ACCC70853A8306156F /* MapMarkers.swift */; };
+		A2806CAFF6CDD0DA0F2E972E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E4C2ED136ACF5AFC42BD6C38 /* PrivacyInfo.xcprivacy */; };
 		A418939E593E68B96358DE68 /* DailyForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16106A1BF1B9C4AEFAC1B781 /* DailyForecastCard.swift */; };
 		A65BDB7853BB8613749F84D3 /* FishingScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD488F286557AD47170A7A2 /* FishingScore.swift */; };
+		A98335B6E830EBC6A37AE1B9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930423DE957C94B58042735 /* OnboardingView.swift */; };
 		ADEF4753DF33B375A04603A9 /* TideSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0F9D394BF8C6F479A6D3C /* TideSection.swift */; };
 		B32D5C840F289F713CB76A70 /* CatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559ECF995D4A461C97E093F2 /* CatchStore.swift */; };
 		B5E5B715C50FF93BBA1464DD /* SpeciesPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE01B925894DA8296C3C9B6 /* SpeciesPrediction.swift */; };
+		BA97CA85BE378479EDD4FF91 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6859ABA3CC8F64A393913881 /* WidgetSnapshot.swift */; };
 		BAC7B7C0687A70285565583C /* CatchEntryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D78E69095B8329F3AC7121C8 /* CatchEntryRow.swift */; };
 		BBB89C8073F5DB156323ED79 /* FishCastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 36549E691D8F41B18F842E48 /* FishCastCard.swift */; };
 		BBDFDD30E69E59E7EF1B2B28 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC56D8A4B3A79F2229DC8C4A /* ContentView.swift */; };
 		BC8CDB69E40E3E60CA0F6B0E /* ConditionChip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53E3AE7B533604629BB4697A /* ConditionChip.swift */; };
+		BEA1D029E28DA32D08C9D5D3 /* CatchExporter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0C18E11206BD748F095752F1 /* CatchExporter.swift */; };
 		C05F9E3BA7D2B90B81FC91D8 /* CatchFilterBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95EC42E2ABDCAABC75BB8D39 /* CatchFilterBar.swift */; };
 		C2AC6CD83837CEF250287296 /* LocationPermissionStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8B7AFE1D9812FAA009AD9B /* LocationPermissionStatus.swift */; };
 		CA32B1012D71911D73B97DAD /* MoonPhaseService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E4E230731D7F34C9396DA10 /* MoonPhaseService.swift */; };
+		CFA85B016297246AD9F99EC7 /* NotificationScheduler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 889FFAD86A9ACC11F5017F82 /* NotificationScheduler.swift */; };
 		D094AB0C1F1127E13FB915AA /* ForecastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE5B451CCAB2DA2197F71426 /* ForecastView.swift */; };
 		D4F6AFCCD41A718F491EEC83 /* SectionHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F92F87FBD85688F1923FB06 /* SectionHeader.swift */; };
 		D54C7FE8E7F6569D0CFCC788 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7F69BBB2F019ABB2B1682BF /* MapView.swift */; };
@@ -60,13 +71,42 @@
 		E06512C35AE3181485C6CE7C /* ScoreRingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEA6D2E40178FDA4E1EDB1E2 /* ScoreRingView.swift */; };
 		ECAF2352F4B21A87D6D9E9D2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AB0E8E73067C29CE7174F20 /* Assets.xcassets */; };
 		EE1DCA4F5FA448D3FCE20447 /* SpotStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49BDC6AF5A4D12EDCC9C7315 /* SpotStore.swift */; };
+		EFD32E84C4EC2274743E1125 /* SkeletonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6D5149F8913F217216FDE54 /* SkeletonView.swift */; };
+		F548A16839D5B6675A70CC8E /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6859ABA3CC8F64A393913881 /* WidgetSnapshot.swift */; };
+		F97483520D8429E0B885FB79 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC3087F1BFB42FE34BCC7B /* AppSettings.swift */; };
 		F99097B2CB19F536449FE928 /* ConditionsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = C2DF963E0993772A779076E8 /* ConditionsRow.swift */; };
 		FD3BBCEA54EC19BDE4DF1F0D /* CatchEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7884F1C74B047680ECBDF9F /* CatchEntry.swift */; };
+		FF932D57026C1FB018060573 /* FishCastWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = CF9CDDE0DBD81A3CFB1AFFAE /* FishCastWidget.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C8B186A8357730C50FB7FB2A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = AAEEA4CAFA22CFE8CE92BE8B /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = B53215D67A6CA43C057D3595;
+			remoteInfo = FishCastWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		71ABCF1D13C3008DF0E8ED58 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				FF932D57026C1FB018060573 /* FishCastWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		03AEAD0CF3386E9EB5BFADB2 /* NewCatchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCatchSheet.swift; sourceTree = "<group>"; };
 		054649130D175EB17CACA611 /* WeatherSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherSnapshot.swift; sourceTree = "<group>"; };
+		0C18E11206BD748F095752F1 /* CatchExporter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchExporter.swift; sourceTree = "<group>"; };
 		0D3F0217F73606B54116AE38 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		0EE01B925894DA8296C3C9B6 /* SpeciesPrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesPrediction.swift; sourceTree = "<group>"; };
 		0F625B4D3F44536CEDF9D47D /* SpeciesPredictor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeciesPredictor.swift; sourceTree = "<group>"; };
@@ -76,6 +116,7 @@
 		1CDFE99619F529B35F2C1F74 /* DashboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
 		1E23419997B0CFEF5A03D7F5 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
 		245817CBF0FDABE7761B154C /* FishCast.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FishCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2930423DE957C94B58042735 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2DD488F286557AD47170A7A2 /* FishingScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingScore.swift; sourceTree = "<group>"; };
 		36549E691D8F41B18F842E48 /* FishCastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastCard.swift; sourceTree = "<group>"; };
 		41EDC1989125F88CA5CBFDBF /* BestTimesTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimesTimelineView.swift; sourceTree = "<group>"; };
@@ -87,19 +128,27 @@
 		53E3AE7B533604629BB4697A /* ConditionChip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionChip.swift; sourceTree = "<group>"; };
 		5566BCFAFD9335FEE0822A19 /* MapViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewModel.swift; sourceTree = "<group>"; };
 		559ECF995D4A461C97E093F2 /* CatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchStore.swift; sourceTree = "<group>"; };
+		6859ABA3CC8F64A393913881 /* WidgetSnapshot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetSnapshot.swift; sourceTree = "<group>"; };
+		72D02DBF1AC2DBBBA176F128 /* FishCastWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastWidgetEntryView.swift; sourceTree = "<group>"; };
 		78AF151378FB77B0CD5F1277 /* TideService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideService.swift; sourceTree = "<group>"; };
 		7AB0E8E73067C29CE7174F20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7E069C82DEFD6B45D4E51CFE /* FishCastWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastWidgetBundle.swift; sourceTree = "<group>"; };
 		88325BD5E96A39F8BE75C7EF /* NewSpotSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpotSheet.swift; sourceTree = "<group>"; };
+		889FFAD86A9ACC11F5017F82 /* NotificationScheduler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationScheduler.swift; sourceTree = "<group>"; };
 		8B2F59FDFDE90C59A9573B16 /* FishCastApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastApp.swift; sourceTree = "<group>"; };
 		8C5A17F20CDB5D06695516F8 /* PressureTrend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureTrend.swift; sourceTree = "<group>"; };
 		8E4E230731D7F34C9396DA10 /* MoonPhaseService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonPhaseService.swift; sourceTree = "<group>"; };
 		8F92F87FBD85688F1923FB06 /* SectionHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionHeader.swift; sourceTree = "<group>"; };
 		92376870D43DFADDB86ABF63 /* MoonSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoonSection.swift; sourceTree = "<group>"; };
+		94C657D5D3ED54FD2F311342 /* ShareSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareSheet.swift; sourceTree = "<group>"; };
 		95EC42E2ABDCAABC75BB8D39 /* CatchFilterBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchFilterBar.swift; sourceTree = "<group>"; };
 		97CB696557D63D767127FBC2 /* FishingScoreCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingScoreCard.swift; sourceTree = "<group>"; };
 		9A8B7AFE1D9812FAA009AD9B /* LocationPermissionStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationPermissionStatus.swift; sourceTree = "<group>"; };
+		9AEC3087F1BFB42FE34BCC7B /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		9BDA39C9761A60AF5E2FAB87 /* AppError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppError.swift; sourceTree = "<group>"; };
 		9CF1AD53E9B6CDF173B41DB2 /* CatchLogViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchLogViewModel.swift; sourceTree = "<group>"; };
+		A2ECFEC41E6005E99DCFD606 /* ErrorBanner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorBanner.swift; sourceTree = "<group>"; };
+		A6AE72103C68F170622E15AC /* Haptics.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Haptics.swift; sourceTree = "<group>"; };
 		A7FCAB574A986DFAC3608608 /* LogView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogView.swift; sourceTree = "<group>"; };
 		AA6D40E1C6EFB17204F89858 /* FishingSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingSpot.swift; sourceTree = "<group>"; };
 		AE5B451CCAB2DA2197F71426 /* ForecastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastView.swift; sourceTree = "<group>"; };
@@ -111,28 +160,46 @@
 		C1F09C311C948F94146ADE2B /* BestBetsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestBetsView.swift; sourceTree = "<group>"; };
 		C2DF963E0993772A779076E8 /* ConditionsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConditionsRow.swift; sourceTree = "<group>"; };
 		C54A0841CC3E0536B574E5C8 /* TidePrediction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TidePrediction.swift; sourceTree = "<group>"; };
+		C5D47C3FEB71513CCB4E2E81 /* FishCast.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = FishCast.entitlements; sourceTree = "<group>"; };
+		C8A0C31F41E2B5C101886D43 /* FishCastWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastWidget.swift; sourceTree = "<group>"; };
 		CEA6D2E40178FDA4E1EDB1E2 /* ScoreRingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreRingView.swift; sourceTree = "<group>"; };
+		CF9CDDE0DBD81A3CFB1AFFAE /* FishCastWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = FishCastWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		D78E69095B8329F3AC7121C8 /* CatchEntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchEntryRow.swift; sourceTree = "<group>"; };
 		DC56D8A4B3A79F2229DC8C4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DFA7A4F36FB280085902606B /* PressureTrendChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureTrendChart.swift; sourceTree = "<group>"; };
 		DFE688ACCC70853A8306156F /* MapMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkers.swift; sourceTree = "<group>"; };
 		E0A955B8771D323927AD906C /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
+		E4C2ED136ACF5AFC42BD6C38 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		F0718C65CA9701DA1D9F3FF3 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		F156B3B0C21E0D9E22BDA222 /* FishingConditionsEngine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingConditionsEngine.swift; sourceTree = "<group>"; };
 		F5F0F9D394BF8C6F479A6D3C /* TideSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TideSection.swift; sourceTree = "<group>"; };
 		F6CCD8D77B902626E04C03B6 /* MapSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapSearchBar.swift; sourceTree = "<group>"; };
+		F6D5149F8913F217216FDE54 /* SkeletonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkeletonView.swift; sourceTree = "<group>"; };
 		F7AF5E3EE1665E6090B7E28D /* DashboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		054139FF46CA2A2C18DDC7B2 /* FishCastWidget */ = {
+			isa = PBXGroup;
+			children = (
+				C8A0C31F41E2B5C101886D43 /* FishCastWidget.swift */,
+				7E069C82DEFD6B45D4E51CFE /* FishCastWidgetBundle.swift */,
+				72D02DBF1AC2DBBBA176F128 /* FishCastWidgetEntryView.swift */,
+			);
+			path = FishCastWidget;
+			sourceTree = "<group>";
+		};
 		0E05D5BD16890970E4FF25A6 /* Components */ = {
 			isa = PBXGroup;
 			children = (
 				0D3F0217F73606B54116AE38 /* Buttons.swift */,
 				53E3AE7B533604629BB4697A /* ConditionChip.swift */,
+				A2ECFEC41E6005E99DCFD606 /* ErrorBanner.swift */,
 				36549E691D8F41B18F842E48 /* FishCastCard.swift */,
 				CEA6D2E40178FDA4E1EDB1E2 /* ScoreRingView.swift */,
 				8F92F87FBD85688F1923FB06 /* SectionHeader.swift */,
+				94C657D5D3ED54FD2F311342 /* ShareSheet.swift */,
+				F6D5149F8913F217216FDE54 /* SkeletonView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -151,18 +218,29 @@
 			isa = PBXGroup;
 			children = (
 				245817CBF0FDABE7761B154C /* FishCast.app */,
+				CF9CDDE0DBD81A3CFB1AFFAE /* FishCastWidget.appex */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		30CF92634AFDDF32AD9BD7EC /* Onboarding */ = {
+			isa = PBXGroup;
+			children = (
+				2930423DE957C94B58042735 /* OnboardingView.swift */,
+			);
+			path = Onboarding;
 			sourceTree = "<group>";
 		};
 		39A8058785878EF148D64A5F /* Services */ = {
 			isa = PBXGroup;
 			children = (
 				164B180FA6CD606E22474262 /* BarometricService.swift */,
+				0C18E11206BD748F095752F1 /* CatchExporter.swift */,
 				559ECF995D4A461C97E093F2 /* CatchStore.swift */,
 				F156B3B0C21E0D9E22BDA222 /* FishingConditionsEngine.swift */,
 				B3B3AA055FA1105AEE52AB97 /* LocationService.swift */,
 				8E4E230731D7F34C9396DA10 /* MoonPhaseService.swift */,
+				889FFAD86A9ACC11F5017F82 /* NotificationScheduler.swift */,
 				0F625B4D3F44536CEDF9D47D /* SpeciesPredictor.swift */,
 				49BDC6AF5A4D12EDCC9C7315 /* SpotStore.swift */,
 				78AF151378FB77B0CD5F1277 /* TideService.swift */,
@@ -175,6 +253,7 @@
 			isa = PBXGroup;
 			children = (
 				9BDA39C9761A60AF5E2FAB87 /* AppError.swift */,
+				9AEC3087F1BFB42FE34BCC7B /* AppSettings.swift */,
 				B7884F1C74B047680ECBDF9F /* CatchEntry.swift */,
 				2DD488F286557AD47170A7A2 /* FishingScore.swift */,
 				AA6D40E1C6EFB17204F89858 /* FishingSpot.swift */,
@@ -185,6 +264,7 @@
 				C54A0841CC3E0536B574E5C8 /* TidePrediction.swift */,
 				1BAFDB73222944331C9D3885 /* Weather.swift */,
 				054649130D175EB17CACA611 /* WeatherSnapshot.swift */,
+				6859ABA3CC8F64A393913881 /* WidgetSnapshot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -194,8 +274,10 @@
 			children = (
 				7AB0E8E73067C29CE7174F20 /* Assets.xcassets */,
 				DC56D8A4B3A79F2229DC8C4A /* ContentView.swift */,
+				C5D47C3FEB71513CCB4E2E81 /* FishCast.entitlements */,
 				8B2F59FDFDE90C59A9573B16 /* FishCastApp.swift */,
 				449E9CAEC63F4396F747F029 /* Info.plist */,
+				E4C2ED136ACF5AFC42BD6C38 /* PrivacyInfo.xcprivacy */,
 				3FC26201B57F5413AC9A99D2 /* Models */,
 				39A8058785878EF148D64A5F /* Services */,
 				69C92F55E371DAB691729AF2 /* Utilities */,
@@ -220,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				1E23419997B0CFEF5A03D7F5 /* DesignSystem.swift */,
+				A6AE72103C68F170622E15AC /* Haptics.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -237,6 +320,7 @@
 				1D4F4F6BF05A191357D55094 /* Forecast */,
 				67CD6162B8699FE2A316D756 /* Log */,
 				6C8D6ED8BA39FC07A3E1B08C /* Map */,
+				30CF92634AFDDF32AD9BD7EC /* Onboarding */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -256,6 +340,7 @@
 			isa = PBXGroup;
 			children = (
 				56CE6BF88B3C975536C0CB56 /* FishCast */,
+				054139FF46CA2A2C18DDC7B2 /* FishCastWidget */,
 				21A5A8F9061F776D20BBEA3C /* Products */,
 			);
 			sourceTree = "<group>";
@@ -293,10 +378,12 @@
 			buildPhases = (
 				C5F8DFB289D5619913370EE3 /* Sources */,
 				47FB4E83159F2A1A1C337966 /* Resources */,
+				71ABCF1D13C3008DF0E8ED58 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2C36FE664E98C915336B78FD /* PBXTargetDependency */,
 			);
 			name = FishCast;
 			packageProductDependencies = (
@@ -304,6 +391,23 @@
 			productName = FishCast;
 			productReference = 245817CBF0FDABE7761B154C /* FishCast.app */;
 			productType = "com.apple.product-type.application";
+		};
+		B53215D67A6CA43C057D3595 /* FishCastWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D63787C6D0DAC9FB23A3FA3A /* Build configuration list for PBXNativeTarget "FishCastWidget" */;
+			buildPhases = (
+				ED766193FFC5733F09E303EF /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FishCastWidget;
+			packageProductDependencies = (
+			);
+			productName = FishCastWidget;
+			productReference = CF9CDDE0DBD81A3CFB1AFFAE /* FishCastWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -315,6 +419,10 @@
 				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					9EFAD658491CE22729C69C68 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					B53215D67A6CA43C057D3595 = {
 						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
@@ -335,6 +443,7 @@
 			projectRoot = "";
 			targets = (
 				9EFAD658491CE22729C69C68 /* FishCast */,
+				B53215D67A6CA43C057D3595 /* FishCastWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -345,6 +454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ECAF2352F4B21A87D6D9E9D2 /* Assets.xcassets in Resources */,
+				A2806CAFF6CDD0DA0F2E972E /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -356,12 +466,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				187A67546C87953005DD4B56 /* AppError.swift in Sources */,
+				F97483520D8429E0B885FB79 /* AppSettings.swift in Sources */,
 				510096FF69C4ECD15C39F1AB /* BarometricService.swift in Sources */,
 				11B2BA5835668A08A71E3AEA /* BestBetsView.swift in Sources */,
 				1EBCACA24A8DF00FF2E18ABD /* BestTimesTimelineView.swift in Sources */,
 				22477A7F4C7B61D38457DF57 /* Buttons.swift in Sources */,
 				FD3BBCEA54EC19BDE4DF1F0D /* CatchEntry.swift in Sources */,
 				BAC7B7C0687A70285565583C /* CatchEntryRow.swift in Sources */,
+				BEA1D029E28DA32D08C9D5D3 /* CatchExporter.swift in Sources */,
 				C05F9E3BA7D2B90B81FC91D8 /* CatchFilterBar.swift in Sources */,
 				118878BBF36088172D710A0D /* CatchLogViewModel.swift in Sources */,
 				929FA6927D5F1F916FE9DEF6 /* CatchStatsCard.swift in Sources */,
@@ -374,6 +486,7 @@
 				562D97BF47C6DDEF69964596 /* DashboardView.swift in Sources */,
 				41F8B72BD613C7B2FCCA403F /* DashboardViewModel.swift in Sources */,
 				6B4F61B1E3484D44C1C73019 /* DesignSystem.swift in Sources */,
+				1A31747F069BE7A29CF80B2E /* ErrorBanner.swift in Sources */,
 				1A13FC452C5D5FCBFFFD4CB8 /* FishCastApp.swift in Sources */,
 				BBB89C8073F5DB156323ED79 /* FishCastCard.swift in Sources */,
 				7D7F5CA668DAF1A3774F33D4 /* FishingConditionsEngine.swift in Sources */,
@@ -382,6 +495,7 @@
 				61F1C0F54D906EC6F9D46CEA /* FishingSpot.swift in Sources */,
 				D094AB0C1F1127E13FB915AA /* ForecastView.swift in Sources */,
 				90AA12EA01643593BCFA2DFA /* ForecastViewModel.swift in Sources */,
+				46A5BDF01B568016F3724A6C /* Haptics.swift in Sources */,
 				C2AC6CD83837CEF250287296 /* LocationPermissionStatus.swift in Sources */,
 				839AF3B071A65178CA70C85F /* LocationService.swift in Sources */,
 				2E8DF7D8E43D0FED3417D5E1 /* LogView.swift in Sources */,
@@ -394,11 +508,15 @@
 				6EBBD90D871B663874A651D9 /* MoonSection.swift in Sources */,
 				69FFCF5C82BEC1AFA978DA6C /* NewCatchSheet.swift in Sources */,
 				188C0EFA61C4D9A22200B31A /* NewSpotSheet.swift in Sources */,
+				CFA85B016297246AD9F99EC7 /* NotificationScheduler.swift in Sources */,
+				A98335B6E830EBC6A37AE1B9 /* OnboardingView.swift in Sources */,
 				78045E761503319FAA78432C /* PressureTrend.swift in Sources */,
 				1157D760D6DE053A5F061A5E /* PressureTrendChart.swift in Sources */,
 				E06512C35AE3181485C6CE7C /* ScoreRingView.swift in Sources */,
 				D4F6AFCCD41A718F491EEC83 /* SectionHeader.swift in Sources */,
 				42359E5EC06A5F55912D84B4 /* SettingsView.swift in Sources */,
+				6D1CDD1ED51A4C2932F65DED /* ShareSheet.swift in Sources */,
+				EFD32E84C4EC2274743E1125 /* SkeletonView.swift in Sources */,
 				B5E5B715C50FF93BBA1464DD /* SpeciesPrediction.swift in Sources */,
 				7773D47FEEE459053E4A4D9C /* SpeciesPredictor.swift in Sources */,
 				7BA5E8BDA7922763B5FB8EB6 /* SpotDetailSheet.swift in Sources */,
@@ -409,10 +527,30 @@
 				22132C938614D23149C3B48D /* Weather.swift in Sources */,
 				4EE6BAFFAC815E1EB8CFDC67 /* WeatherService.swift in Sources */,
 				5C891DC5CF1A0AFDEFE075EF /* WeatherSnapshot.swift in Sources */,
+				BA97CA85BE378479EDD4FF91 /* WidgetSnapshot.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		ED766193FFC5733F09E303EF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				672AD45209451E5079E1F643 /* FishCastWidget.swift in Sources */,
+				3BE35E30F25A558D9B149C71 /* FishCastWidgetBundle.swift in Sources */,
+				97EF91D466EF3583C3601C3A /* FishCastWidgetEntryView.swift in Sources */,
+				F548A16839D5B6675A70CC8E /* WidgetSnapshot.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2C36FE664E98C915336B78FD /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = B53215D67A6CA43C057D3595 /* FishCastWidget */;
+			targetProxy = C8B186A8357730C50FB7FB2A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		44B4AA8EEB03154D367E59C0 /* Release */ = {
@@ -420,6 +558,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishCast/FishCast.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FishCast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -429,6 +568,24 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.fishcast.FishCast;
 				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		4D2507488DEA3EBB75FAF6BE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FishCastWidget/FishCastWidget.entitlements;
+				INFOPLIST_FILE = FishCastWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fishcast.FishCast.Widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
@@ -498,6 +655,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = FishCast/FishCast.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = FishCast/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -578,6 +736,24 @@
 			};
 			name = Debug;
 		};
+		CE83AF14B3C7B3C12A5086D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = FishCastWidget/FishCastWidget.entitlements;
+				INFOPLIST_FILE = FishCastWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.fishcast.FishCast.Widget;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -586,6 +762,15 @@
 			buildConfigurations = (
 				BC889A11C6066D336CFFF1D4 /* Debug */,
 				50E312E7E3EBF69B53030826 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		D63787C6D0DAC9FB23A3FA3A /* Build configuration list for PBXNativeTarget "FishCastWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE83AF14B3C7B3C12A5086D7 /* Debug */,
+				4D2507488DEA3EBB75FAF6BE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

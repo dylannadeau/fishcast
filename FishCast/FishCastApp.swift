@@ -2,6 +2,7 @@ import SwiftUI
 
 @main
 struct FishCastApp: App {
+    @AppStorage(SettingsKey.onboardingComplete) private var onboardingComplete = false
 
     init() {
         configureTabBarAppearance()
@@ -10,8 +11,16 @@ struct FishCastApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .preferredColorScheme(.dark)
+            Group {
+                if onboardingComplete {
+                    ContentView()
+                } else {
+                    OnboardingView()
+                        .transition(.opacity)
+                }
+            }
+            .preferredColorScheme(.dark)
+            .animation(.appEaseOut, value: onboardingComplete)
         }
     }
 

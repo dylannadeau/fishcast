@@ -38,7 +38,16 @@ struct MapView: View {
             }
 
             searchOverlay(query: $viewModel.searchQuery)
+
+            if spotStore.spots.isEmpty {
+                emptyHintCard
+                    .padding(.horizontal, Layout.screenEdge)
+                    .padding(.bottom, Spacing.xl)
+                    .frame(maxHeight: .infinity, alignment: .bottom)
+                    .transition(.opacity)
+            }
         }
+        .animation(.appEaseOut, value: spotStore.spots.isEmpty)
         .sheet(item: $viewModel.selectedSpot) { spot in
             SpotDetailSheet(spot: spot, viewModel: viewModel)
         }
@@ -97,6 +106,27 @@ struct MapView: View {
 
     private var visibleSpots: [FishingSpot] {
         viewModel.filteredSpots(from: spotStore.spots)
+    }
+
+    /// Shown the first time a user opens the Map tab — coaches the
+    /// long-press-to-drop-pin gesture without blocking the map.
+    private var emptyHintCard: some View {
+        FishCastCard {
+            HStack(spacing: Spacing.sm) {
+                Image(systemName: "hand.point.up.left.fill")
+                    .font(.system(size: 24))
+                    .foregroundStyle(Color.accentGold)
+                VStack(alignment: .leading, spacing: 2) {
+                    Text("Long-press to drop a pin")
+                        .font(.appHeadline)
+                        .foregroundStyle(Color.textPrimary)
+                    Text("Save your honey holes — we'll pull live conditions for each one.")
+                        .font(.appCaption)
+                        .foregroundStyle(Color.textSecondary)
+                }
+                Spacer(minLength: 0)
+            }
+        }
     }
 }
 

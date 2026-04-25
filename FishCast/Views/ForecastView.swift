@@ -50,38 +50,22 @@ struct ForecastView: View {
 
     private var loadingState: some View {
         VStack(spacing: Spacing.md) {
-            ProgressView()
-                .tint(Color.accentGold)
-                .scaleEffect(1.2)
-            Text("Loading forecast…")
-                .font(.appBody)
-                .foregroundStyle(Color.textSecondary)
+            ForEach(0 ..< 5, id: \.self) { _ in
+                FishCastCard {
+                    SkeletonBlock(height: 56, cornerRadius: Layout.radiusSm)
+                }
+            }
         }
-        .frame(maxWidth: .infinity, minHeight: 320)
+        .padding(.horizontal, Layout.screenEdge)
     }
 
     private func errorState(message: String) -> some View {
-        FishCastCard {
-            VStack(spacing: Spacing.md) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .font(.system(size: IconSize.hero))
-                    .foregroundStyle(Color.scorePoor)
-
-                Text("Couldn't load forecast")
-                    .font(.appHeadline)
-                    .foregroundStyle(Color.textPrimary)
-
-                Text(message)
-                    .font(.appBody)
-                    .foregroundStyle(Color.textSecondary)
-                    .multilineTextAlignment(.center)
-
-                PrimaryButton(title: "Try again") {
-                    Task { await viewModel.load() }
-                }
-                .padding(.top, Spacing.xs)
-            }
-            .frame(maxWidth: .infinity)
+        ErrorBanner(
+            title: "Couldn't load forecast",
+            message: message,
+            systemImage: "wifi.slash"
+        ) {
+            Task { await viewModel.load() }
         }
     }
 

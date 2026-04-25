@@ -31,12 +31,16 @@ targets:
         INFOPLIST_FILE: FishCast/Info.plist
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME: AccentColor
+        CODE_SIGN_ENTITLEMENTS: FishCast/FishCast.entitlements
+    dependencies:
+      - target: FishCastWidget
     info:
       path: FishCast/Info.plist
       properties:
         NSLocationAlwaysAndWhenInUseUsageDescription: "FishCast uses your location to provide accurate fishing forecasts and to find spots near you."
         NSLocationWhenInUseUsageDescription: "FishCast uses your location to show real-time conditions at fishing spots near you."
         NSLocationAlwaysUsageDescription: "FishCast uses background location to notify you when prime fishing conditions arrive at your saved spots."
+        NSPhotoLibraryUsageDescription: "FishCast lets you attach photos to your catch log entries."
         UILaunchScreen: {}
         UIUserInterfaceStyle: Dark
         UISupportedInterfaceOrientations:
@@ -46,3 +50,21 @@ targets:
           - UIInterfaceOrientationPortraitUpsideDown
           - UIInterfaceOrientationLandscapeLeft
           - UIInterfaceOrientationLandscapeRight
+
+  FishCastWidget:
+    type: app-extension
+    platform: iOS
+    deploymentTarget: "17.0"
+    sources:
+      - path: FishCastWidget
+        excludes:
+          - "**/.DS_Store"
+          - "Info.plist"
+          - "FishCastWidget.entitlements"
+      - path: FishCast/Models/WidgetSnapshot.swift
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.fishcast.FishCast.Widget
+        INFOPLIST_FILE: FishCastWidget/Info.plist
+        CODE_SIGN_ENTITLEMENTS: FishCastWidget/FishCastWidget.entitlements
+        SKIP_INSTALL: YES

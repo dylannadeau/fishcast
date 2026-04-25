@@ -61,7 +61,17 @@ struct ScoreRingView: View {
         }
         .frame(width: ringDiameter, height: ringDiameter)
         .onAppear {
-            withAnimation(Animation.appSpring.delay(0.3)) {
+            withAnimation(Animation.spring(response: 1.0, dampingFraction: 0.65).delay(0.2)) {
+                animatedProgress = progress
+            }
+            // Tap-tap feedback when the gauge crystallises.
+            Task { @MainActor in
+                try? await Task.sleep(nanoseconds: 600_000_000)
+                Haptics.impact(.light)
+            }
+        }
+        .onChange(of: score) { _, _ in
+            withAnimation(.spring(response: 0.8, dampingFraction: 0.7)) {
                 animatedProgress = progress
             }
         }

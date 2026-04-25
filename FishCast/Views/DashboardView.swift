@@ -48,40 +48,28 @@ struct DashboardView: View {
     // MARK: - States
 
     private var loadingState: some View {
-        VStack(spacing: Spacing.md) {
-            ProgressView()
-                .tint(Color.accentGold)
-                .scaleEffect(1.2)
-            Text("Gathering conditions…")
-                .font(.appBody)
-                .foregroundStyle(Color.textSecondary)
-        }
-        .frame(maxWidth: .infinity, minHeight: 320)
+        DashboardSkeleton()
     }
 
     private func errorState(message: String) -> some View {
-        FishCastCard {
-            VStack(spacing: Spacing.md) {
-                Image(systemName: "exclamationmark.triangle.fill")
-                    .font(.system(size: IconSize.hero))
-                    .foregroundStyle(Color.scorePoor)
-
-                Text("Couldn't load conditions")
-                    .font(.appHeadline)
-                    .foregroundStyle(Color.textPrimary)
-
-                Text(message)
-                    .font(.appBody)
-                    .foregroundStyle(Color.textSecondary)
-                    .multilineTextAlignment(.center)
-
-                PrimaryButton(title: "Try again") {
-                    Task { await viewModel.load() }
-                }
-                .padding(.top, Spacing.xs)
-            }
-            .frame(maxWidth: .infinity)
+        ErrorBanner(
+            title: "Couldn't load conditions",
+            message: message,
+            systemImage: errorIcon(for: message)
+        ) {
+            Task { await viewModel.load() }
         }
+    }
+
+    private func errorIcon(for message: String) -> String {
+        let lower = message.lowercased()
+        if lower.contains("location") || lower.contains("permission") {
+            return "location.slash"
+        }
+        if lower.contains("internet") || lower.contains("network") || lower.contains("offline") {
+            return "wifi.slash"
+        }
+        return "exclamationmark.triangle.fill"
     }
 
     @ViewBuilder

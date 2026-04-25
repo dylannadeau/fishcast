@@ -1,6 +1,7 @@
 import CoreLocation
 import Foundation
 import Observation
+import WidgetKit
 
 /// Orchestrates the Dashboard screen: location → weather → pressure → score.
 /// Uses the iOS 17 `@Observable` macro; views consume published state directly.
@@ -84,6 +85,8 @@ final class DashboardViewModel {
             self.hourlyScores = today
             self.speciesPredictions = bets
             self.loadState = .loaded
+
+            updateWidgetSnapshot(score: score, hourlyScores: today, locationName: placeName)
         } catch {
             let message = (error as? LocalizedError)?.errorDescription
                 ?? error.localizedDescription
@@ -125,6 +128,35 @@ final class DashboardViewModel {
                 )
                 return HourlyScore(id: hour.date, hour: hour, score: score)
             }
+    }
+
+    /// Pushes a compact snapshot to the App Group so the widget can render
+    /// without having to make its own WeatherKit call. Best-effort — failure
+    /// here is silent because the widget gracefully shows a placeholder.
+    private func updateWidgetSnapshot(
+        score: FishingScore,
+        hourlyScores: [HourlyScore],
+        locationName: String?
+    ) {
+        let now = Date()
+        let upcoming = hourlyScores.filter { $0.hour.date >= now }
+        let peak = upcoming.max(by: { $0.score.score < $1.score.score })
+        let topFactor = score.factors
+            .filter { $0.impact == .positive }
+            .first?.name
+
+        let snapshot = WidgetSnapshot(
+            score: score.score,
+            rating: score.rating.label,
+            summary: score.summary,
+            locationName: locationName,
+            bestHour: peak.map { Calendar.current.component(.hour, from: $0.hour.date) },
+            bestHourScore: peak?.score.score,
+            topFactor: topFactor,
+            updatedAt: now
+        )
+        WidgetStorage.save(snapshot)
+        WidgetCenter.shared.reloadAllTimelines()
     }
 
     /// Hourly forecasts don't include pressure/humidity/UV, so we reuse the

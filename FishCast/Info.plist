@@ -24,6 +24,8 @@
 	<string>FishCast uses background location to notify you when prime fishing conditions arrive at your saved spots.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>FishCast uses your location to show real-time conditions at fishing spots near you.</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>FishCast lets you attach photos to your catch log entries.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 	<key>UISupportedInterfaceOrientations</key>
