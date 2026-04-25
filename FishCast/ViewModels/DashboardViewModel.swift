@@ -31,6 +31,7 @@ final class DashboardViewModel {
     var pressureTrend: PressureTrend = .steady
     var pressureReadings: [PressureReading] = []
     var hourlyScores: [HourlyScore] = []
+    var speciesPredictions: [SpeciesPrediction] = []
 
     // MARK: Dependencies
 
@@ -71,6 +72,9 @@ final class DashboardViewModel {
                 weather: bundle.current, trend: trend, date: now
             )
             let today = todayHourlyScores(bundle: bundle, trend: trend, now: now)
+            let bets = FishingConditionsEngine.speciesRecommendations(
+                weather: bundle.current, trend: trend, date: now, topN: 3
+            )
 
             self.locationName = placeName
             self.weather = bundle
@@ -78,6 +82,7 @@ final class DashboardViewModel {
             self.pressureTrend = trend
             self.pressureReadings = readings
             self.hourlyScores = today
+            self.speciesPredictions = bets
             self.loadState = .loaded
         } catch {
             let message = (error as? LocalizedError)?.errorDescription

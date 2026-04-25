@@ -117,6 +117,14 @@ struct DashboardView: View {
                     .padding(.horizontal, Layout.screenEdge)
             }
         }
+
+        if !viewModel.speciesPredictions.isEmpty {
+            VStack(alignment: .leading, spacing: Spacing.sm) {
+                SectionHeader(title: "Best Bets Today")
+                    .padding(.horizontal, Layout.screenEdge)
+                BestBetsView(predictions: viewModel.speciesPredictions)
+            }
+        }
     }
 }
 

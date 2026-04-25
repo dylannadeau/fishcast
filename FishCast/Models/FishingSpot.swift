@@ -3,7 +3,8 @@ import Foundation
 
 /// A saved fishing spot. `CLLocationCoordinate2D` is not `Codable`, so we
 /// persist latitude/longitude as primitives and expose a computed
-/// `coordinate` to callers.
+/// `coordinate` to callers. Catches are owned by `CatchStore` and linked
+/// back via `CatchEntry.spotId`.
 struct FishingSpot: Codable, Identifiable, Hashable, Sendable {
     let id: UUID
     var name: String
@@ -12,14 +13,9 @@ struct FishingSpot: Codable, Identifiable, Hashable, Sendable {
     var notes: String
     var fishSpecies: [String]
     let createdAt: Date
-    var catches: [CatchEntry]
 
     var coordinate: CLLocationCoordinate2D {
         CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
-    }
-
-    var lastCatch: CatchEntry? {
-        catches.max(by: { $0.recordedAt < $1.recordedAt })
     }
 
     init(
@@ -28,8 +24,7 @@ struct FishingSpot: Codable, Identifiable, Hashable, Sendable {
         coordinate: CLLocationCoordinate2D,
         notes: String = "",
         fishSpecies: [String] = [],
-        createdAt: Date = .now,
-        catches: [CatchEntry] = []
+        createdAt: Date = .now
     ) {
         self.id = id
         self.name = name
@@ -38,6 +33,5 @@ struct FishingSpot: Codable, Identifiable, Hashable, Sendable {
         self.notes = notes
         self.fishSpecies = fishSpecies
         self.createdAt = createdAt
-        self.catches = catches
     }
 }

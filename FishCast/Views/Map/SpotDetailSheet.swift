@@ -5,9 +5,14 @@ struct SpotDetailSheet: View {
     let spot: FishingSpot
     let viewModel: MapViewModel
 
+    @ObservedObject private var catchStore = CatchStore.shared
     @Environment(\.dismiss) private var dismiss
     @State private var score: FishingScore?
     @State private var isLoadingScore = true
+
+    private var lastCatch: CatchEntry? {
+        catchStore.lastCatch(for: spot.id)
+    }
 
     var body: some View {
         NavigationStack {
@@ -116,20 +121,20 @@ struct SpotDetailSheet: View {
             VStack(alignment: .leading, spacing: Spacing.xs) {
                 SectionHeader(title: "Last Catch")
 
-                if let latest = spot.lastCatch {
+                if let latest = lastCatch {
                     VStack(alignment: .leading, spacing: Spacing.xxs) {
                         Text(latest.species)
                             .font(.appHeadline)
                             .foregroundStyle(Color.textPrimary)
 
                         HStack(spacing: Spacing.md) {
-                            if let weight = latest.weightLbs {
+                            if let weight = latest.weight {
                                 Label(String(format: "%.1f lb", weight), systemImage: "scalemass")
                             }
-                            if let length = latest.lengthInches {
+                            if let length = latest.length {
                                 Label(String(format: "%.0f in", length), systemImage: "ruler")
                             }
-                            Label(latest.recordedAt.formatted(.relative(presentation: .named)), systemImage: "calendar")
+                            Label(latest.date.formatted(.relative(presentation: .named)), systemImage: "calendar")
                         }
                         .font(.appCaption)
                         .foregroundStyle(Color.textSecondary)

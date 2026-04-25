@@ -1,27 +1,41 @@
 import Foundation
 
-/// Minimal catch log entry — expanded when the Log tab is implemented.
+/// A logged catch. Persisted by `CatchStore`; the optional `spotId` links it
+/// back to a saved `FishingSpot` (the spot itself does not embed catches —
+/// `CatchStore` is the single source of truth).
 struct CatchEntry: Codable, Identifiable, Hashable, Sendable {
     let id: UUID
+    var date: Date
+    var spotId: UUID?
     var species: String
-    var weightLbs: Double?
-    var lengthInches: Double?
+    var weight: Double?         // pounds
+    var length: Double?         // inches
+    var lure: String?
     var notes: String
-    let recordedAt: Date
+    var weatherSnapshot: WeatherSnapshot?
+    var photo: Data?            // JPEG-encoded thumbnail
 
     init(
         id: UUID = UUID(),
+        date: Date = .now,
+        spotId: UUID? = nil,
         species: String,
-        weightLbs: Double? = nil,
-        lengthInches: Double? = nil,
+        weight: Double? = nil,
+        length: Double? = nil,
+        lure: String? = nil,
         notes: String = "",
-        recordedAt: Date = .now
+        weatherSnapshot: WeatherSnapshot? = nil,
+        photo: Data? = nil
     ) {
         self.id = id
+        self.date = date
+        self.spotId = spotId
         self.species = species
-        self.weightLbs = weightLbs
-        self.lengthInches = lengthInches
+        self.weight = weight
+        self.length = length
+        self.lure = lure
         self.notes = notes
-        self.recordedAt = recordedAt
+        self.weatherSnapshot = weatherSnapshot
+        self.photo = photo
     }
 }
