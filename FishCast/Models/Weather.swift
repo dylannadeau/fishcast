@@ -71,6 +71,8 @@ struct DailyForecast: Identifiable, Sendable {
     let highTemperature: Measurement<UnitTemperature>
     let lowTemperature: Measurement<UnitTemperature>
     let precipitationChance: Double
+    let windSpeed: Measurement<UnitSpeed>
+    let windDirection: Measurement<UnitAngle>
     let sunrise: Date?
     let sunset: Date?
     let moonPhase: String
@@ -86,6 +88,8 @@ extension DailyForecast {
         self.highTemperature      = kit.highTemperature
         self.lowTemperature       = kit.lowTemperature
         self.precipitationChance  = kit.precipitationChance
+        self.windSpeed            = kit.wind.speed
+        self.windDirection        = kit.wind.direction
         self.sunrise              = kit.sun.sunrise
         self.sunset               = kit.sun.sunset
         self.moonPhase            = kit.moon.phase.description

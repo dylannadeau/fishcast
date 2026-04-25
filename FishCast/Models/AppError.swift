@@ -9,6 +9,8 @@ enum AppError: LocalizedError {
     case pressureDataUnavailable
     case pressureCacheFailed(underlying: Error)
     case missingEntitlement(String)
+    case tideFetchFailed(underlying: Error?)
+    case tideStationUnavailable
 
     var errorDescription: String? {
         switch self {
@@ -28,6 +30,11 @@ enum AppError: LocalizedError {
             return "Failed to cache pressure readings: \(underlying.localizedDescription)"
         case .missingEntitlement(let name):
             return "Missing required entitlement: \(name). Enable it in Signing & Capabilities."
+        case .tideFetchFailed(let underlying):
+            if let underlying { return "Tide fetch failed: \(underlying.localizedDescription)" }
+            return "Tide data is currently unavailable."
+        case .tideStationUnavailable:
+            return "No NOAA tide station is close enough for tide predictions here."
         }
     }
 }
