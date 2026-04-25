@@ -42,13 +42,13 @@ final class DashboardViewModel {
     private let geocoder = CLGeocoder()
 
     init(
-        locationService: LocationService = .shared,
-        weatherService: WeatherService = .shared,
-        barometricService: BarometricService = .shared
+        locationService: LocationService? = nil,
+        weatherService: WeatherService? = nil,
+        barometricService: BarometricService? = nil
     ) {
-        self.locationService = locationService
-        self.weatherService = weatherService
-        self.barometricService = barometricService
+        self.locationService = locationService ?? .shared
+        self.weatherService = weatherService ?? .shared
+        self.barometricService = barometricService ?? .shared
     }
 
     // MARK: Loading

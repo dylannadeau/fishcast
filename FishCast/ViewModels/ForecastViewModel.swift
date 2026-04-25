@@ -39,17 +39,17 @@ final class ForecastViewModel {
     private let tideService: TideService
 
     init(
-        locationService: LocationService = .shared,
-        weatherService: WeatherService = .shared,
-        barometricService: BarometricService = .shared,
-        moonService: MoonPhaseService = .shared,
-        tideService: TideService = .shared
+        locationService: LocationService? = nil,
+        weatherService: WeatherService? = nil,
+        barometricService: BarometricService? = nil,
+        moonService: MoonPhaseService? = nil,
+        tideService: TideService? = nil
     ) {
-        self.locationService = locationService
-        self.weatherService = weatherService
-        self.barometricService = barometricService
-        self.moonService = moonService
-        self.tideService = tideService
+        self.locationService = locationService ?? .shared
+        self.weatherService = weatherService ?? .shared
+        self.barometricService = barometricService ?? .shared
+        self.moonService = moonService ?? .shared
+        self.tideService = tideService ?? .shared
     }
 
     // MARK: Loading

@@ -149,63 +149,22 @@ struct SpotDetailSheet: View {
     }
 }
 
-/// Simple wrapping tag row for species names.
 private struct FlowTags: View {
     let tags: [String]
 
     var body: some View {
-        FlowLayout(spacing: Spacing.xs) {
-            ForEach(tags, id: \.self) { tag in
-                Text(tag)
-                    .font(.appCaption)
-                    .foregroundStyle(Color.accentGold)
-                    .padding(.horizontal, Spacing.xs)
-                    .padding(.vertical, 4)
-                    .background(Color.accentGold.opacity(0.15))
-                    .clipShape(Capsule())
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: Spacing.xs) {
+                ForEach(tags, id: \.self) { tag in
+                    Text(tag)
+                        .font(.appCaption)
+                        .foregroundStyle(Color.accentGold)
+                        .padding(.horizontal, Spacing.xs)
+                        .padding(.vertical, 4)
+                        .background(Color.accentGold.opacity(0.15))
+                        .clipShape(Capsule())
+                }
             }
-        }
-    }
-}
-
-/// Minimal wrapping HStack — avoids pulling in SwiftUI's iOS 16+ `Layout` boilerplate.
-private struct FlowLayout: Layout {
-    var spacing: CGFloat
-
-    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
-        let maxWidth = proposal.width ?? .infinity
-        var currentX: CGFloat = 0
-        var currentY: CGFloat = 0
-        var rowHeight: CGFloat = 0
-
-        for subview in subviews {
-            let size = subview.sizeThatFits(.unspecified)
-            if currentX + size.width > maxWidth {
-                currentX = 0
-                currentY += rowHeight + spacing
-                rowHeight = 0
-            }
-            currentX += size.width + spacing
-            rowHeight = max(rowHeight, size.height)
-        }
-        return CGSize(width: maxWidth, height: currentY + rowHeight)
-    }
-
-    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
-        var currentX = bounds.minX
-        var currentY = bounds.minY
-        var rowHeight: CGFloat = 0
-
-        for subview in subviews {
-            let size = subview.sizeThatFits(.unspecified)
-            if currentX + size.width > bounds.maxX {
-                currentX = bounds.minX
-                currentY += rowHeight + spacing
-                rowHeight = 0
-            }
-            subview.place(at: CGPoint(x: currentX, y: currentY), proposal: ProposedViewSize(size))
-            currentX += size.width + spacing
-            rowHeight = max(rowHeight, size.height)
         }
     }
 }

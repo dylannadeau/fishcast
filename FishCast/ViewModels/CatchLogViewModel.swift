@@ -32,13 +32,13 @@ final class CatchLogViewModel {
     private let moonService: MoonPhaseService
 
     init(
-        weatherService: WeatherService = .shared,
-        locationService: LocationService = .shared,
-        moonService: MoonPhaseService = .shared
+        weatherService: WeatherService? = nil,
+        locationService: LocationService? = nil,
+        moonService: MoonPhaseService? = nil
     ) {
-        self.weatherService = weatherService
-        self.locationService = locationService
-        self.moonService = moonService
+        self.weatherService = weatherService ?? .shared
+        self.locationService = locationService ?? .shared
+        self.moonService = moonService ?? .shared
     }
 
     // MARK: Filtered + sorted output

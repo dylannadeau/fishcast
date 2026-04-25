@@ -37,7 +37,7 @@ struct OnboardingView: View {
             icon: AppIcons.fish,
             iconColor: .accentGold,
             title: "Welcome to FishCast",
-            body: "Real-time fishing forecasts powered by weather, barometric pressure, moon phases, and tide data — so you know before you go."
+            message: "Real-time fishing forecasts powered by weather, barometric pressure, moon phases, and tide data — so you know before you go."
         )
     }
 
@@ -46,7 +46,7 @@ struct OnboardingView: View {
             icon: AppIcons.location,
             iconColor: .accentTeal,
             title: "Find Spots Near You",
-            body: "FishCast uses your location to fetch live conditions and nearby NOAA tide stations. Your location never leaves your device."
+            message: "FishCast uses your location to fetch live conditions and nearby NOAA tide stations. Your location never leaves your device."
         )
     }
 
@@ -55,7 +55,7 @@ struct OnboardingView: View {
             icon: AppIcons.weather,
             iconColor: .accentGoldLight,
             title: "Daily Bite Reminders",
-            body: "Get a once-a-day push when conditions look promising — set the time in Settings later if you'd like."
+            message: "Get a once-a-day push when conditions look promising — set the time in Settings later if you'd like."
         )
     }
 
@@ -123,7 +123,7 @@ private struct OnboardingPage: View {
     let icon: String
     let iconColor: Color
     let title: String
-    let body: String
+    let message: String
 
     var body: some View {
         VStack(spacing: Spacing.lg) {
@@ -145,7 +145,7 @@ private struct OnboardingPage: View {
                     .foregroundStyle(Color.textPrimary)
                     .multilineTextAlignment(.center)
 
-                Text(body)
+                Text(message)
                     .font(.appBody)
                     .foregroundStyle(Color.textSecondary)
                     .multilineTextAlignment(.center)
