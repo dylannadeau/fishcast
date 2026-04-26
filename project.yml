@@ -66,5 +66,6 @@ targets:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.fishcast.FishCast.Widget
         INFOPLIST_FILE: FishCastWidget/Info.plist
+        GENERATE_INFOPLIST_FILE: NO
         CODE_SIGN_ENTITLEMENTS: FishCastWidget/FishCastWidget.entitlements
         SKIP_INSTALL: YES
