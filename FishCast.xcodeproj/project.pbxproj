@@ -21,6 +21,7 @@
 		27B1254F11AEAA99078C4E0E /* MapViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5566BCFAFD9335FEE0822A19 /* MapViewModel.swift */; };
 		2D29A61F27232F85AB833934 /* MapSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6CCD8D77B902626E04C03B6 /* MapSearchBar.swift */; };
 		2E8DF7D8E43D0FED3417D5E1 /* LogView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7FCAB574A986DFAC3608608 /* LogView.swift */; };
+		398D6911DD0785466E6E3476 /* ToastView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFB9A7175DAA40AED06B91F9 /* ToastView.swift */; };
 		3BE35E30F25A558D9B149C71 /* FishCastWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E069C82DEFD6B45D4E51CFE /* FishCastWidgetBundle.swift */; };
 		41F8B72BD613C7B2FCCA403F /* DashboardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0A955B8771D323927AD906C /* DashboardViewModel.swift */; };
 		42359E5EC06A5F55912D84B4 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0718C65CA9701DA1D9F3FF3 /* SettingsView.swift */; };
@@ -46,12 +47,14 @@
 		90AA12EA01643593BCFA2DFA /* ForecastViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CC928C05E566F224CAFB4C6 /* ForecastViewModel.swift */; };
 		929FA6927D5F1F916FE9DEF6 /* CatchStatsCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 472AFA8EAB0295C1B6DD06A8 /* CatchStatsCard.swift */; };
 		97EF91D466EF3583C3601C3A /* FishCastWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D02DBF1AC2DBBBA176F128 /* FishCastWidgetEntryView.swift */; };
+		9A16486AF02426180D90DCED /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F3CDD5C76E1CFBDC52149A6 /* AppRouter.swift */; };
 		9C1404E6A30BE869F8D3A883 /* MapMarkers.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFE688ACCC70853A8306156F /* MapMarkers.swift */; };
 		A2806CAFF6CDD0DA0F2E972E /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = E4C2ED136ACF5AFC42BD6C38 /* PrivacyInfo.xcprivacy */; };
 		A418939E593E68B96358DE68 /* DailyForecastCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16106A1BF1B9C4AEFAC1B781 /* DailyForecastCard.swift */; };
 		A65BDB7853BB8613749F84D3 /* FishingScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DD488F286557AD47170A7A2 /* FishingScore.swift */; };
 		A98335B6E830EBC6A37AE1B9 /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2930423DE957C94B58042735 /* OnboardingView.swift */; };
 		ADEF4753DF33B375A04603A9 /* TideSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5F0F9D394BF8C6F479A6D3C /* TideSection.swift */; };
+		B047D054582E93F0F874698E /* CatchDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 46765C478BBACC672FBC8892 /* CatchDetailView.swift */; };
 		B32D5C840F289F713CB76A70 /* CatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 559ECF995D4A461C97E093F2 /* CatchStore.swift */; };
 		B5E5B715C50FF93BBA1464DD /* SpeciesPrediction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EE01B925894DA8296C3C9B6 /* SpeciesPrediction.swift */; };
 		BA97CA85BE378479EDD4FF91 /* WidgetSnapshot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6859ABA3CC8F64A393913881 /* WidgetSnapshot.swift */; };
@@ -115,12 +118,14 @@
 		1BAFDB73222944331C9D3885 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		1CDFE99619F529B35F2C1F74 /* DashboardHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardHeaderView.swift; sourceTree = "<group>"; };
 		1E23419997B0CFEF5A03D7F5 /* DesignSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignSystem.swift; sourceTree = "<group>"; };
+		1F3CDD5C76E1CFBDC52149A6 /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		245817CBF0FDABE7761B154C /* FishCast.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = FishCast.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2930423DE957C94B58042735 /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		2DD488F286557AD47170A7A2 /* FishingScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishingScore.swift; sourceTree = "<group>"; };
 		36549E691D8F41B18F842E48 /* FishCastCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCastCard.swift; sourceTree = "<group>"; };
 		41EDC1989125F88CA5CBFDBF /* BestTimesTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BestTimesTimelineView.swift; sourceTree = "<group>"; };
 		449E9CAEC63F4396F747F029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		46765C478BBACC672FBC8892 /* CatchDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchDetailView.swift; sourceTree = "<group>"; };
 		472AFA8EAB0295C1B6DD06A8 /* CatchStatsCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchStatsCard.swift; sourceTree = "<group>"; };
 		485FDB9B7561B673F4EA8FFA /* SpotDetailSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotDetailSheet.swift; sourceTree = "<group>"; };
 		49BDC6AF5A4D12EDCC9C7315 /* SpotStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotStore.swift; sourceTree = "<group>"; };
@@ -167,6 +172,7 @@
 		D78E69095B8329F3AC7121C8 /* CatchEntryRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatchEntryRow.swift; sourceTree = "<group>"; };
 		DC56D8A4B3A79F2229DC8C4A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DFA7A4F36FB280085902606B /* PressureTrendChart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PressureTrendChart.swift; sourceTree = "<group>"; };
+		DFB9A7175DAA40AED06B91F9 /* ToastView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToastView.swift; sourceTree = "<group>"; };
 		DFE688ACCC70853A8306156F /* MapMarkers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapMarkers.swift; sourceTree = "<group>"; };
 		E0A955B8771D323927AD906C /* DashboardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DashboardViewModel.swift; sourceTree = "<group>"; };
 		E4C2ED136ACF5AFC42BD6C38 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
@@ -290,6 +296,7 @@
 		67CD6162B8699FE2A316D756 /* Log */ = {
 			isa = PBXGroup;
 			children = (
+				46765C478BBACC672FBC8892 /* CatchDetailView.swift */,
 				D78E69095B8329F3AC7121C8 /* CatchEntryRow.swift */,
 				95EC42E2ABDCAABC75BB8D39 /* CatchFilterBar.swift */,
 				472AFA8EAB0295C1B6DD06A8 /* CatchStatsCard.swift */,
@@ -301,8 +308,10 @@
 		69C92F55E371DAB691729AF2 /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
+				1F3CDD5C76E1CFBDC52149A6 /* AppRouter.swift */,
 				1E23419997B0CFEF5A03D7F5 /* DesignSystem.swift */,
 				A6AE72103C68F170622E15AC /* Haptics.swift */,
+				DFB9A7175DAA40AED06B91F9 /* ToastView.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -466,11 +475,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				187A67546C87953005DD4B56 /* AppError.swift in Sources */,
+				9A16486AF02426180D90DCED /* AppRouter.swift in Sources */,
 				F97483520D8429E0B885FB79 /* AppSettings.swift in Sources */,
 				510096FF69C4ECD15C39F1AB /* BarometricService.swift in Sources */,
 				11B2BA5835668A08A71E3AEA /* BestBetsView.swift in Sources */,
 				1EBCACA24A8DF00FF2E18ABD /* BestTimesTimelineView.swift in Sources */,
 				22477A7F4C7B61D38457DF57 /* Buttons.swift in Sources */,
+				B047D054582E93F0F874698E /* CatchDetailView.swift in Sources */,
 				FD3BBCEA54EC19BDE4DF1F0D /* CatchEntry.swift in Sources */,
 				BAC7B7C0687A70285565583C /* CatchEntryRow.swift in Sources */,
 				BEA1D029E28DA32D08C9D5D3 /* CatchExporter.swift in Sources */,
@@ -524,6 +535,7 @@
 				D99FF9DA7898A7D5266B2437 /* TidePrediction.swift in Sources */,
 				ADEF4753DF33B375A04603A9 /* TideSection.swift in Sources */,
 				58F5F5A3F8A6BE4EB96742F8 /* TideService.swift in Sources */,
+				398D6911DD0785466E6E3476 /* ToastView.swift in Sources */,
 				22132C938614D23149C3B48D /* Weather.swift in Sources */,
 				4EE6BAFFAC815E1EB8CFDC67 /* WeatherService.swift in Sources */,
 				5C891DC5CF1A0AFDEFE075EF /* WeatherSnapshot.swift in Sources */,

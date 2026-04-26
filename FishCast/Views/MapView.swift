@@ -4,6 +4,8 @@ import SwiftUI
 struct MapView: View {
     @ObservedObject private var spotStore = SpotStore.shared
     @State private var viewModel = MapViewModel()
+    @State private var router = AppRouter.shared
+    @State private var showSavedToast = false
 
     var body: some View {
         @Bindable var viewModel = viewModel
@@ -49,7 +51,16 @@ struct MapView: View {
         }
         .animation(.appEaseOut, value: spotStore.spots.isEmpty)
         .sheet(item: $viewModel.selectedSpot) { spot in
-            SpotDetailSheet(spot: spot, viewModel: viewModel)
+            SpotDetailSheet(
+                spot: spot,
+                viewModel: viewModel,
+                onSaved: {
+                    showSavedToast = true
+                },
+                onDeleted: {
+                    viewModel.selectedSpot = nil
+                }
+            )
         }
         .sheet(item: $viewModel.draftCoordinate) { draft in
             NewSpotSheet(coordinate: draft.coordinate) { name, notes in
@@ -66,6 +77,22 @@ struct MapView: View {
         .task {
             _ = await LocationService.shared.requestWhenInUseAuthorization()
         }
+        .onAppear { handlePendingFocus() }
+        .onChange(of: router.spotToFocus) { _, _ in handlePendingFocus() }
+        .onChange(of: spotStore.spots) { _, _ in handlePendingFocus() }
+        .toast("Changes saved", isPresented: $showSavedToast)
+    }
+
+    /// If `AppRouter` has queued a spot to focus (e.g. from the catch detail
+    /// view in another tab), zoom to it and open its detail sheet, then
+    /// clear the request so it doesn't fire again.
+    private func handlePendingFocus() {
+        guard let id = router.spotToFocus,
+              let spot = spotStore.spots.first(where: { $0.id == id })
+        else { return }
+        viewModel.focus(on: spot)
+        viewModel.selectedSpot = spot
+        router.spotToFocus = nil
     }
 
     // MARK: - Gestures

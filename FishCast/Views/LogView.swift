@@ -23,6 +23,9 @@ struct LogView: View {
             }
             .navigationTitle("Log")
             .navigationBarTitleDisplayMode(.large)
+            .navigationDestination(for: CatchEntry.self) { entry in
+                CatchDetailView(entry: entry)
+            }
             .toolbar {
                 ToolbarItem(placement: .topBarTrailing) {
                     Button {
@@ -69,10 +72,13 @@ struct LogView: View {
 
                 LazyVStack(spacing: Spacing.sm) {
                     ForEach(displayedCatches) { entry in
-                        CatchEntryRow(
-                            entry: entry,
-                            spotName: spotName(for: entry.spotId)
-                        )
+                        NavigationLink(value: entry) {
+                            CatchEntryRow(
+                                entry: entry,
+                                spotName: spotName(for: entry.spotId)
+                            )
+                        }
+                        .buttonStyle(.plain)
                         .swipeActions(edge: .trailing) {
                             Button(role: .destructive) {
                                 catchStore.deleteCatch(entry)
