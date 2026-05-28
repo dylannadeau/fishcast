@@ -38,7 +38,7 @@ final class NotificationScheduler {
         cancelDailyReminder()
 
         let content = UNMutableNotificationContent()
-        content.title = "FishCast"
+        content.title = "Anglers Edge"
         content.body = "Today's fishing forecast is ready — check current conditions."
         content.sound = .default
         content.categoryIdentifier = Self.identifier

@@ -36,7 +36,7 @@ struct OnboardingView: View {
         OnboardingPage(
             icon: AppIcons.fish,
             iconColor: .accentGold,
-            title: "Welcome to FishCast",
+            title: "Welcome to Anglers Edge",
             message: "Real-time fishing forecasts powered by weather, barometric pressure, moon phases, and tide data — so you know before you go."
         )
     }
@@ -46,7 +46,7 @@ struct OnboardingView: View {
             icon: AppIcons.location,
             iconColor: .accentTeal,
             title: "Find Spots Near You",
-            message: "FishCast uses your location to fetch live conditions and nearby NOAA tide stations. Your location never leaves your device."
+            message: "Anglers Edge uses your location to fetch live conditions and nearby NOAA tide stations. Your location never leaves your device."
         )
     }
 

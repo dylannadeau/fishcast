@@ -37,10 +37,11 @@ targets:
     info:
       path: FishCast/Info.plist
       properties:
-        NSLocationAlwaysAndWhenInUseUsageDescription: "FishCast uses your location to provide accurate fishing forecasts and to find spots near you."
-        NSLocationWhenInUseUsageDescription: "FishCast uses your location to show real-time conditions at fishing spots near you."
-        NSLocationAlwaysUsageDescription: "FishCast uses background location to notify you when prime fishing conditions arrive at your saved spots."
-        NSPhotoLibraryUsageDescription: "FishCast lets you attach photos to your catch log entries."
+        CFBundleDisplayName: "Anglers Edge"
+        NSLocationAlwaysAndWhenInUseUsageDescription: "Anglers Edge uses your location to provide accurate fishing forecasts and to find spots near you."
+        NSLocationWhenInUseUsageDescription: "Anglers Edge uses your location to show real-time conditions at fishing spots near you."
+        NSLocationAlwaysUsageDescription: "Anglers Edge uses background location to notify you when prime fishing conditions arrive at your saved spots."
+        NSPhotoLibraryUsageDescription: "Anglers Edge lets you attach photos to your catch log entries."
         UILaunchScreen: {}
         UIUserInterfaceStyle: Dark
         UISupportedInterfaceOrientations:

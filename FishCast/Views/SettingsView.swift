@@ -186,7 +186,7 @@ struct SettingsView: View {
                     .foregroundStyle(Color.accentGold)
                 }
 
-                Link(destination: URL(string: "mailto:feedback@example.com?subject=FishCast%20Feedback")!) {
+                Link(destination: URL(string: "mailto:feedback@example.com?subject=Anglers%20Edge%20Feedback")!) {
                     HStack {
                         Image(systemName: "envelope")
                         Text("Send Feedback")
