@@ -68,8 +68,10 @@ final class ForecastViewModel {
             let bundle = try await bundleTask
             let trend = await barometricService.currentTrend()
 
-            let entries = computeDailyEntries(bundle: bundle, trend: trend)
             let moonInfo = moonService.info(for: .now, at: location.coordinate)
+            let entries = computeDailyEntries(
+                bundle: bundle, trend: trend, moonInfo: moonInfo
+            )
             let tideForecast = (try? await tideTask) ?? nil
 
             self.dailyEntries = entries
@@ -87,14 +89,20 @@ final class ForecastViewModel {
 
     private func computeDailyEntries(
         bundle: WeatherBundle,
-        trend: PressureTrend
+        trend: PressureTrend,
+        moonInfo: MoonInfo
     ) -> [DailyEntry] {
         bundle.daily.map { day in
             let synthetic = synthesizeCurrent(from: bundle.current, day: day)
             // Score for noon — represents the day's average daytime conditions.
             let noon = noonOfDay(day.date)
             let score = FishingConditionsEngine.computeScore(
-                weather: synthetic, trend: trend, date: noon
+                weather: synthetic,
+                trend: trend,
+                date: noon,
+                moonInfo: moonInfo,
+                sunrise: day.sunrise,
+                sunset: day.sunset
             )
             return DailyEntry(day: day, score: score)
         }

@@ -1,8 +1,11 @@
 import SwiftUI
 
 /// Hero card: large score ring + rating label + plain-English summary.
+/// When `interactive` is true a "Tap for full breakdown →" hint appears at
+/// the bottom — the surrounding `NavigationLink` provides the actual push.
 struct FishingScoreCard: View {
     let score: FishingScore
+    var interactive: Bool = false
 
     var body: some View {
         FishCastCard {
@@ -14,12 +17,22 @@ struct FishingScoreCard: View {
                     .foregroundStyle(ratingColor)
                     .tracking(1.5)
 
-                Text(score.summary)
+                Text(score.summaryText)
                     .font(.appBody)
                     .foregroundStyle(Color.textSecondary)
                     .multilineTextAlignment(.center)
                     .fixedSize(horizontal: false, vertical: true)
                     .padding(.horizontal, Spacing.xs)
+
+                if interactive {
+                    HStack(spacing: 4) {
+                        Text("Tap for full breakdown")
+                        Image(systemName: "chevron.right")
+                    }
+                    .font(.appCaption)
+                    .foregroundStyle(Color.textTertiary)
+                    .padding(.top, Spacing.xxs)
+                }
             }
             .frame(maxWidth: .infinity)
         }
@@ -36,12 +49,15 @@ struct FishingScoreCard: View {
 }
 
 #Preview {
-    FishingScoreCard(score: FishingScore(
-        score: 82,
-        rating: .excellent,
-        factors: [],
-        summary: "Pressure has been rising slowly — fish are likely feeding near the surface. Everything lines up — get on the water."
-    ))
+    FishingScoreCard(
+        score: FishingScore(
+            score: 82,
+            rating: .excellent,
+            factors: [],
+            summary: "Pressure is dropping steadily — fish are on a pre-front feeding push. This is one of the best windows you'll see this week."
+        ),
+        interactive: true
+    )
     .padding(Layout.screenEdge)
     .background(Color.primaryBackground)
 }

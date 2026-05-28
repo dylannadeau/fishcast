@@ -29,13 +29,15 @@ final class WeatherService {
         return Array(weather.dailyForecast.prefix(days)).map(DailyForecast.init(from:))
     }
 
-    /// Single WeatherKit request returning current + 24h hourly + 7d daily.
-    func fullForecast(for location: CLLocation) async throws -> WeatherBundle {
+    /// Single WeatherKit request returning current + N-hour hourly + 7d daily.
+    /// Hourly default is 72h — enough for the Dashboard's 48h "next best
+    /// window" search and its 3-day outlook hour rolls.
+    func fullForecast(for location: CLLocation, hourlyHours: Int = 72) async throws -> WeatherBundle {
         let weather = try await fetchWeather(for: location)
         let precipChance = upcomingHour(in: weather)?.precipitationChance ?? 0
         return WeatherBundle(
             current: CurrentWeather(from: weather.currentWeather, precipitationChance: precipChance),
-            hourly:  Array(weather.hourlyForecast.prefix(24)).map(HourlyForecast.init(from:)),
+            hourly:  Array(weather.hourlyForecast.prefix(hourlyHours)).map(HourlyForecast.init(from:)),
             daily:   Array(weather.dailyForecast.prefix(7)).map(DailyForecast.init(from:))
         )
     }

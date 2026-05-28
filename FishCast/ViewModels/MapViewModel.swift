@@ -26,13 +26,16 @@ final class MapViewModel {
 
     private let weatherService: WeatherService
     private let barometricService: BarometricService
+    private let moonService: MoonPhaseService
 
     init(
         weatherService: WeatherService = .shared,
-        barometricService: BarometricService = .shared
+        barometricService: BarometricService = .shared,
+        moonService: MoonPhaseService = .shared
     ) {
         self.weatherService = weatherService
         self.barometricService = barometricService
+        self.moonService = moonService
     }
 
     // MARK: Filtering
@@ -72,8 +75,12 @@ final class MapViewModel {
         do {
             let current = try await weatherService.currentConditions(for: location)
             let trend = await barometricService.currentTrend()
+            let moon = moonService.info(for: .now, at: coordinate)
             return FishingConditionsEngine.computeScore(
-                weather: current, trend: trend, date: .now
+                weather: current,
+                trend: trend,
+                date: .now,
+                moonInfo: moon
             )
         } catch {
             return nil
