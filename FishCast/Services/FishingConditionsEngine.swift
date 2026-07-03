@@ -148,6 +148,115 @@ struct FishingConditionsEngine {
         return rankSpecies(context: context, environmentalScore: score.score)
     }
 
+    // MARK: - Whole-day species outlook
+
+    /// Ranks species for *the rest of today* at a location, blending current
+    /// conditions with the day's remaining prime feeding windows.
+    ///
+    /// Assumptions (tune here):
+    ///   • Sample points: right now, plus the dawn window (sunrise + 30 min)
+    ///     and dusk window (sunset − 1 h) when they're still ahead of us
+    ///     today. Light-change windows are the day's likelihood peaks, so a
+    ///     "most likely today" answer has to account for them, not just the
+    ///     current instant.
+    ///   • Each future sample synthesizes conditions from the nearest hourly
+    ///     forecast (temp/wind/precip/sky/pressure) and re-runs the full
+    ///     factor + species pipeline at that time.
+    ///   • Per-species likelihood is the *mean* across samples; the tip
+    ///     shown is the one for current conditions.
+    ///   • The pressure trend is assumed to persist across today's samples —
+    ///     consistent with `simplifiedHourlyScore`'s decay model but cheaper.
+    ///
+    /// Returned array is sorted most → least likely and covers every target
+    /// species, so callers can slice both ends ("best bets" / "long shots").
+    static func daySpeciesOutlook(
+        weather: CurrentWeather,
+        trend: PressureTrend,
+        now: Date = .now,
+        hourlyForecast: [HourlyForecast] = [],
+        targetSpecies: [TargetSpecies] = TargetSpecies.allCases,
+        moonInfo: MoonInfo? = nil,
+        sunrise: Date? = nil,
+        sunset: Date? = nil
+    ) -> [SpeciesPrediction] {
+        var sampleDates: [Date] = [now]
+        let endOfDay = Calendar.current.startOfDay(for: now).addingTimeInterval(86_400)
+        if let sunrise {
+            let dawn = sunrise.addingTimeInterval(30 * 60)
+            if dawn > now, dawn < endOfDay { sampleDates.append(dawn) }
+        }
+        if let sunset {
+            let dusk = sunset.addingTimeInterval(-3600)
+            if dusk > now, dusk < endOfDay { sampleDates.append(dusk) }
+        }
+
+        let samples: [[SpeciesPrediction]] = sampleDates.map { date in
+            let sampleWeather: CurrentWeather
+            if date == now {
+                sampleWeather = weather
+            } else if let hour = nearestHour(to: date, in: hourlyForecast) {
+                sampleWeather = synthesize(current: weather, at: hour)
+            } else {
+                sampleWeather = weather
+            }
+            return allSpeciesPredictions(
+                weather: sampleWeather,
+                trend: trend,
+                date: date,
+                targetSpecies: targetSpecies,
+                moonInfo: moonInfo,
+                sunrise: sunrise,
+                sunset: sunset
+            )
+        }
+
+        guard let nowPredictions = samples.first else { return [] }
+        return nowPredictions.map { base -> SpeciesPrediction in
+            let likelihoods = samples.compactMap { sample in
+                sample.first(where: { $0.species == base.species })?.likelihood
+            }
+            let mean = likelihoods.reduce(0, +) / max(1, likelihoods.count)
+            return SpeciesPrediction(
+                species: base.species,
+                likelihood: mean,
+                tip: base.tip,
+                symbolName: base.symbolName
+            )
+        }
+        .sorted { $0.likelihood > $1.likelihood }
+    }
+
+    private static func nearestHour(
+        to date: Date, in hourly: [HourlyForecast]
+    ) -> HourlyForecast? {
+        hourly.min(by: {
+            abs($0.date.timeIntervalSince(date)) < abs($1.date.timeIntervalSince(date))
+        })
+    }
+
+    /// Projects current conditions onto a forecast hour. Hour-specific
+    /// temp/wind/precip/sky/pressure take over; humidity/UV/visibility keep
+    /// their current values since hourly forecasts don't carry them.
+    private static func synthesize(
+        current: CurrentWeather, at hour: HourlyForecast
+    ) -> CurrentWeather {
+        CurrentWeather(
+            date: hour.date,
+            temperature: hour.temperature,
+            apparentTemperature: hour.temperature,
+            humidity: current.humidity,
+            windSpeed: hour.windSpeed,
+            windDirection: hour.windDirection,
+            windGust: nil,
+            uvIndex: current.uvIndex,
+            visibility: current.visibility,
+            precipitationChance: hour.precipitationChance,
+            pressure: hour.pressure,
+            conditionDescription: hour.conditionDescription,
+            symbolName: hour.symbolName
+        )
+    }
+
     /// Lightweight per-species fit summary — surfaced in the species detail
     /// list so the user can see *why* a fish is/isn't on the board.
     enum TemperatureFit: Sendable {

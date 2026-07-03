@@ -5,6 +5,7 @@ enum AppError: LocalizedError {
     case locationServicesDisabled
     case locationUnavailable
     case weatherFetchFailed(underlying: Error)
+    case weatherKitNotAuthorized
     case weatherUnavailable
     case pressureDataUnavailable
     case pressureCacheFailed(underlying: Error)
@@ -22,6 +23,8 @@ enum AppError: LocalizedError {
             return "Unable to determine your current location."
         case .weatherFetchFailed(let underlying):
             return "Weather fetch failed: \(underlying.localizedDescription)"
+        case .weatherKitNotAuthorized:
+            return "Apple hasn't authorized this app for WeatherKit yet. Verify the WeatherKit capability is enabled for the App ID in the Developer portal, then wait up to 30 minutes for tokens to propagate."
         case .weatherUnavailable:
             return "Weather data is not available for this location."
         case .pressureDataUnavailable:

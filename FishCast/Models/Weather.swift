@@ -46,6 +46,7 @@ struct HourlyForecast: Identifiable, Sendable {
     let precipitationChance: Double
     let windSpeed: Measurement<UnitSpeed>
     let windDirection: Measurement<UnitAngle>
+    let pressure: Measurement<UnitPressure>
     let conditionDescription: String
     let symbolName: String
 }
@@ -58,6 +59,7 @@ extension HourlyForecast {
         self.precipitationChance  = kit.precipitationChance
         self.windSpeed            = kit.wind.speed
         self.windDirection        = kit.wind.direction
+        self.pressure             = kit.pressure
         self.conditionDescription = kit.condition.description
         self.symbolName           = kit.symbolName
     }
@@ -106,4 +108,14 @@ struct WeatherBundle: Sendable {
     let current: CurrentWeather
     let hourly: [HourlyForecast]
     let daily: [DailyForecast]
+}
+
+/// Result of `WeatherService.spotForecast` — the forward-looking bundle plus
+/// the trailing hourly history used for "how does today compare" averages
+/// and the per-spot pressure trend. Still a single billed WeatherKit call.
+struct SpotWeather: Sendable {
+    let bundle: WeatherBundle
+    /// Hours strictly before the fetch time, oldest first, spanning the
+    /// requested history window (subject to WeatherKit data availability).
+    let historyHourly: [HourlyForecast]
 }

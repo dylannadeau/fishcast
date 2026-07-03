@@ -55,6 +55,7 @@ project.yml      XcodeGen spec
 | Catch log | `Documents/catches.json` | JSON via `CatchStore` |
 | Pressure history (3h rolling) | `UserDefaults` key `com.fishcast.pressure.readings` | JSON via `BarometricService` |
 | NOAA tide stations cache | `Caches/noaa_tide_stations.json` | JSON via `TideService` |
+| Per-spot conditions cache | `Caches/spot_conditions.json` | JSON via `SpotConditionsCache` (in `SpotStore.swift`) |
 | Onboarding completion | `UserDefaults` via `@AppStorage(SettingsKey.onboardingComplete)` | Bool |
 | Widget snapshot | App Group shared container | via `WidgetStorage` |
 
