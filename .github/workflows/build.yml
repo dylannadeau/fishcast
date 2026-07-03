@@ -18,7 +18,10 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Select Xcode
-        run: sudo xcode-select -s /Applications/Xcode_15.4.app/Contents/Developer
+        # The checked-in pbxproj is in Xcode 16's project format (objectVersion
+        # 77, written by the XcodeGen/Xcode 16 toolchain used locally), which
+        # Xcode 15.x cannot open.
+        run: sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
 
       - name: Build
         run: |
