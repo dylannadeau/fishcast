@@ -73,13 +73,9 @@ actor BarometricService {
             return .steady
         }
 
-        let delta = latest.pressure - earliest.pressure
-        let magnitude = abs(delta)
-
-        if magnitude <= 1 { return .steady }
-        let rising = delta > 0
-        if magnitude > 3 { return rising ? .rapidRise : .rapidFall }
-        return rising ? .slowRise : .slowFall
+        return PressureTrend.fromThreeHourDelta(
+            hPa: latest.pressure - earliest.pressure
+        )
     }
 
     private func loadReadings() -> [PressureReading] {

@@ -233,6 +233,25 @@ Caller must supply `hourlyForecast` for this to work. With no hourly data, `next
 
 ---
 
+## Whole-day species outlook (spot cards)
+
+`daySpeciesOutlook(weather:trend:now:hourlyForecast:targetSpecies:moonInfo:sunrise:sunset:)` answers "which species are most/least likely **today**" for the Dashboard's per-spot cards. It does *not* introduce new factor math — it re-runs the existing pipeline at multiple sample times and averages:
+
+1. Sample points: **now**, plus the **dawn window** (sunrise + 30 min) and **dusk window** (sunset − 1 h) when those are still ahead of us today. Light-change windows are the day's likelihood peaks, so a day-level answer must include them.
+2. Each future sample synthesizes conditions from the nearest hourly forecast (temp, wind, precip, sky, pressure); humidity/UV/visibility carry over from current conditions since hourly forecasts don't include them.
+3. Per-species likelihood = **mean across samples** (integer division). Tips come from the "now" sample.
+4. The pressure trend is assumed to persist across today's samples.
+
+The Dashboard slices the sorted result: top 3 → "Most likely", bottom 3 → "Least likely".
+
+### Per-spot pressure trend
+
+Spot cards derive the trend from **WeatherKit hourly history at the spot's own coordinates** rather than the device-location `BarometricService` cache: current pressure minus the reading nearest to (now − 3 h), classified by `PressureTrend.fromThreeHourDelta(hPa:)` — the same |Δ| ≤ 1 / ≤ 3 / > 3 hPa thresholds `BarometricService` uses. If no history reading lands within ±2 h of the 3-hours-ago mark, the trend falls back to `steady`.
+
+Day-over-day forecast pressure deltas on the outlook strip span 24 h, not 3 h, so their rapid/slow thresholds are scaled ×2 (steady ≤ 2 hPa, rapid > 6 hPa — see `dailyTrend(fromDelta:)` in `FishingSpot.swift`).
+
+---
+
 ## Summary text generation
 
 `buildSummary(score:rating:factors:context:nextWindow:)` picks a lead sentence from the top-impact factor and tails it with an outlook based on the rating bucket:

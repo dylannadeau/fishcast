@@ -27,6 +27,16 @@ enum SettingsKey {
     static let notificationsOn    = "settings.notifications.enabled"
     /// Daily reminder time as minutes since midnight (0...1439).
     static let notificationsMinute = "settings.notifications.minute"
+    /// Trailing window (days) for the Dashboard's "vs recent average"
+    /// comparison on spot cards. Capped at 7 — history + 3-day forecast has
+    /// to fit inside one WeatherKit hourly query.
+    static let historyWindowDays = "settings.dashboard.historyDays"
+}
+
+/// Selectable history windows for the spot-card comparison.
+enum HistoryWindow {
+    static let options = [3, 5, 7]
+    static let `default` = 7
 }
 
 /// Default value bootstrap so the widget extension reads the same keys

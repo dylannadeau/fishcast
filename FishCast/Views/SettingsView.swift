@@ -6,6 +6,7 @@ struct SettingsView: View {
     @AppStorage(SettingsKey.units) private var unitsRaw: String = UnitsPreference.imperial.rawValue
     @AppStorage(SettingsKey.notificationsOn) private var notificationsOn: Bool = false
     @AppStorage(SettingsKey.notificationsMinute) private var reminderMinutes: Int = 6 * 60 + 30
+    @AppStorage(SettingsKey.historyWindowDays) private var historyWindowDays: Int = HistoryWindow.default
 
     @ObservedObject private var catchStore = CatchStore.shared
     @ObservedObject private var spotStore  = SpotStore.shared
@@ -32,6 +33,7 @@ struct SettingsView: View {
                 ScrollView {
                     VStack(spacing: Spacing.md) {
                         unitsCard
+                        dashboardCard
                         notificationsCard
                         dataCard
                         aboutCard
@@ -80,6 +82,31 @@ struct SettingsView: View {
                 .pickerStyle(.segmented)
 
                 Text(units.summary)
+                    .font(.appCaption)
+                    .foregroundStyle(Color.textSecondary)
+            }
+        }
+    }
+
+    private var dashboardCard: some View {
+        FishCastCard {
+            VStack(alignment: .leading, spacing: Spacing.sm) {
+                cardHeader(icon: AppIcons.score, title: "Dashboard")
+
+                Picker("Comparison window", selection: Binding(
+                    get: { historyWindowDays },
+                    set: { newValue in
+                        Haptics.selection()
+                        historyWindowDays = newValue
+                    }
+                )) {
+                    ForEach(HistoryWindow.options, id: \.self) { days in
+                        Text("\(days) days").tag(days)
+                    }
+                }
+                .pickerStyle(.segmented)
+
+                Text("Spot cards compare today's temperature and pressure against the average over this many previous days.")
                     .font(.appCaption)
                     .foregroundStyle(Color.textSecondary)
             }
